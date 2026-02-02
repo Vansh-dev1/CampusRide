@@ -1,0 +1,7 @@
+{
+  "name": "campus-ride-root",
+  "version": "1.0.0",
+  "scripts": {
+    "install-backend": "cd backend && npm install"
+  }
+}
