@@ -1,0 +1,202 @@
+.browse-page {}
+
+/* Search bar */
+.search-bar {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+}
+.search-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.search-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #22c55e;
+  pointer-events: none;
+}
+.search-icon.red { color: #ef4444; }
+.search-field input {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  outline: none;
+  background: #f8fafc;
+  transition: border-color 0.2s;
+}
+.search-field input:focus {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+}
+.search-btns { display: flex; gap: 0.75rem; }
+
+.results-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Browse grid */
+.browse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Browse ride card */
+.browse-ride-card { transition: box-shadow 0.2s; }
+.browse-ride-card:hover { box-shadow: var(--shadow-md); }
+
+.brc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.brc-route {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-wrap: wrap;
+}
+.pin-from { color: #22c55e; flex-shrink: 0; }
+.pin-to   { color: #ef4444; flex-shrink: 0; }
+.arrow    { color: var(--text-muted); flex-shrink: 0; }
+
+.fare-pill {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.brc-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.brc-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.brc-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  border-left: 3px solid var(--primary-light);
+  padding-left: 8px;
+}
+
+.brc-rider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+}
+
+.rider-avatar {
+  width: 36px; height: 36px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.rider-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rider-info strong { font-size: 0.88rem; color: #1e293b; }
+.rider-info span   { font-size: 0.75rem; color: var(--text-muted); }
+
+.rider-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #374151;
+}
+.no-rating { font-size: 0.75rem; color: var(--text-muted); font-weight: 400; }
+.rider-rating small { color: var(--text-muted); font-weight: 400; }
+
+.contact-btn {
+  width: 32px; height: 32px;
+  background: #dcfce7;
+  color: #16a34a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.contact-btn:hover { background: #bbf7d0; }
+
+.brc-book-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Inline booking form */
+.booking-form {
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+}
+.booking-inputs {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.booking-inputs .form-group { margin-bottom: 0; }
+.fare-estimate {
+  font-size: 0.82rem;
+  color: #374151;
+  background: #f8fafc;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+}
+.fare-estimate strong { color: var(--primary); }
+.booking-btns { display: flex; gap: 0.5rem; }
+
+@media (max-width: 768px) {
+  .search-fields { grid-template-columns: 1fr; }
+  .browse-grid   { grid-template-columns: 1fr; }
+  .booking-inputs { grid-template-columns: 1fr; }
+}

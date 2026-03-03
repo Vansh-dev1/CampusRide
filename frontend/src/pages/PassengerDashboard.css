@@ -1,0 +1,191 @@
+.passenger-page {}
+
+.passenger-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.pstat-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  box-shadow: var(--shadow);
+}
+.pstat-num   { font-size: 1.75rem; font-weight: 800; color: #1e293b; }
+.pstat-label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+.confirmed-stat .pstat-num { color: var(--success); }
+.completed-stat .pstat-num { color: #2563eb; }
+
+/* Booking cards grid */
+.bookings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.25rem;
+}
+
+.passenger-booking-card { transition: box-shadow 0.2s; }
+.passenger-booking-card:hover { box-shadow: var(--shadow-md); }
+.passenger-booking-card.cancelled { opacity: 0.65; }
+
+.pbc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pbc-route {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+.pin-from { color: #22c55e; }
+.pin-to   { color: #ef4444; }
+.pbc-route svg:not(.pin-from):not(.pin-to) { color: var(--text-muted); }
+
+.pbc-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.pbc-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pbc-rider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-bottom: 0.75rem;
+}
+
+.rider-avatar-sm {
+  width: 30px; height: 30px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pbc-rider > div { flex: 1; }
+.pbc-rider strong { display: block; font-size: 0.85rem; color: #1e293b; }
+.pbc-rider span   { font-size: 0.75rem; color: var(--text-muted); }
+
+.rider-rating-sm {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.pbc-message {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.pbc-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.rated-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* Rating panel */
+.rating-panel {
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+}
+.rating-panel p { font-size: 0.88rem; margin-bottom: 0.5rem; color: #374151; }
+.star-picker {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 0.75rem;
+}
+.star-btn {
+  background: none;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.star-btn:hover { transform: scale(1.2); }
+.rating-actions { display: flex; gap: 0.5rem; }
+
+/* Shared filter-tab style (reused from rider) */
+.filter-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.filter-tab {
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-tab:hover { border-color: var(--primary); color: var(--primary); }
+.filter-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+.loading-state, .empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-muted);
+}
+.empty-state {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border);
+}
+.empty-state svg { margin-bottom: 1rem; opacity: 0.3; }
+.empty-state h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #374151; }
+.empty-state p  { font-size: 0.88rem; }
+
+@media (max-width: 768px) {
+  .passenger-stats { grid-template-columns: repeat(2, 1fr); }
+  .bookings-grid   { grid-template-columns: 1fr; }
+}
