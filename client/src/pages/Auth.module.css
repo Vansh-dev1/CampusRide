@@ -1,0 +1,137 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Left panel — branding */
+.left {
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.leftGlow {
+  position: absolute;
+  top: -120px; right: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.leftLogo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  margin-bottom: 48px;
+}
+.leftTagline {
+  font-size: 38px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+}
+.leftSub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  max-width: 340px;
+  margin-bottom: 48px;
+}
+.leftFeatures { display: flex; flex-direction: column; gap: 14px; }
+.leftFeature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+.leftFeatureIcon {
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* Right panel — form */
+.right {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+}
+.formWrap {
+  width: 100%;
+  max-width: 400px;
+}
+.formLogo {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--gray-900);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+.subtitle {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.form { display: flex; flex-direction: column; gap: 18px; }
+
+.submitBtn {
+  margin-top: 4px;
+  padding: 13px;
+  font-size: 15px;
+}
+
+.switchLink {
+  text-align: center;
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-top: 24px;
+}
+.switchLink a { color: var(--primary); font-weight: 600; }
+.switchLink a:hover { text-decoration: underline; }
+
+/* OTP-specific */
+.otpInput {
+  font-size: 28px !important;
+  letter-spacing: 14px !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+  padding: 16px !important;
+}
+.otpHint {
+  font-size: 13px;
+  color: var(--gray-400);
+  text-align: center;
+  margin-top: -10px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .page { grid-template-columns: 1fr; }
+  .left { display: none; }
+  .right { padding: 40px 20px; min-height: 100vh; }
+}

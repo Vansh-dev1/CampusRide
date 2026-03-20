@@ -1,0 +1,112 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  align-self: flex-start;
+}
+.backBtn:hover { text-decoration: underline; }
+
+/* Hero profile card */
+.heroCard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.heroInfo { flex: 1; min-width: 0; }
+
+.name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+.college { font-size: 14px; color: var(--gray-600); margin-bottom: 4px; }
+
+.ratingBox {
+  background: var(--warning-light);
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.ratingValue { font-size: 22px; font-weight: 700; color: var(--warning); }
+.ratingCount { font-size: 12px; color: var(--warning); }
+
+/* Stats row */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.statCard {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.statValue { font-size: 26px; font-weight: 700; color: var(--gray-900); }
+.statLabel { font-size: 12px; color: var(--gray-500); }
+
+/* Reviews */
+.reviewsTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reviewList { display: flex; flex-direction: column; }
+
+.reviewItem {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+.reviewItem:first-child { padding-top: 0; }
+.reviewItem:last-child { border-bottom: none; padding-bottom: 0; }
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.reviewerName { font-size: 14px; font-weight: 600; color: var(--gray-800); }
+
+.reviewComment {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.reviewDate { font-size: 12px; color: var(--gray-400); }
+
+@media (max-width: 540px) {
+  .heroCard { flex-direction: column; text-align: center; }
+  .heroInfo { text-align: center; }
+}

@@ -1,0 +1,21 @@
+.header { margin-bottom: 28px; }
+.title { font-size: 24px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+.subtitle { font-size: 14px; color: var(--gray-500); }
+.form { display: flex; flex-direction: column; gap: 16px; }
+.sectionLabel { font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 16px; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .grid2, .grid3 { grid-template-columns: 1fr; }
+  .actions { flex-direction: column-reverse; }
+  .actions button { width: 100%; }
+}

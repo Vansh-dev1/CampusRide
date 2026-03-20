@@ -1,0 +1,80 @@
+.greeting {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.greetingTitle {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+.greetingSubtitle { font-size: 15px; color: var(--gray-500); }
+.greetingActions { display: flex; gap: 10px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.statCard {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.statLabel { font-size: 12px; color: var(--gray-500); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+.statValue { font-size: 28px; font-weight: 700; color: var(--gray-900); }
+
+.section { margin-bottom: 36px; }
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.sectionTitle { font-size: 18px; font-weight: 600; color: var(--gray-900); }
+.seeAll { background: none; border: none; color: var(--primary); font-size: 14px; font-weight: 500; cursor: pointer; }
+.seeAll:hover { text-decoration: underline; }
+
+.ridesGrid { display: flex; flex-direction: column; gap: 12px; }
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 20px;
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--gray-300);
+  color: var(--gray-500);
+  text-align: center;
+}
+
+.bookingList { display: flex; flex-direction: column; gap: 10px; }
+.bookingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  flex-wrap: wrap;
+}
+.bookingRoute { font-size: 14px; font-weight: 600; color: var(--gray-900); margin-bottom: 3px; }
+
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .statValue { font-size: 22px; }
+  .greetingActions { flex-direction: column; width: 100%; }
+}
