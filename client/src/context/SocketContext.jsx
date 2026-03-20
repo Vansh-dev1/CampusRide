@@ -22,10 +22,10 @@ export const SocketProvider = ({ children }) => {
     }
 
     // Create socket connection with JWT auth
-    const socket = io(import.meta.env.VITE_SERVER_URL || "http://localhost:5000", {
-      auth: { token },
-      transports: ["websocket"],
-    });
+    const socket = io(
+  import.meta.env.VITE_SOCKET_URL || "http://localhost:5001",
+  { auth: { token }, transports: ["websocket"] }
+);
 
     socketRef.current = socket;
 

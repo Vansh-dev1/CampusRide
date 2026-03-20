@@ -21,7 +21,7 @@ const httpServer = http.createServer(app);
 // Socket.io setup
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: process.env.CLIENT_URL,
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -71,7 +71,7 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB connected");
-    const PORT = process.env.PORT || 5000;
+    const PORT = process.env.PORT || 5001;
     httpServer.listen(PORT, () =>
       console.log(`Server running on port ${PORT}`)
     );

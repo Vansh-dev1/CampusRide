@@ -1,18 +1,18 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: import.meta.env.VITE_SERVER_URL
+    ? `${import.meta.env.VITE_SERVER_URL}/api`
+    : "/api",
   headers: { "Content-Type": "application/json" },
 });
 
-// Attach JWT to every request automatically
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 
-// Global 401 handler — redirect to login
 api.interceptors.response.use(
   (res) => res,
   (err) => {
