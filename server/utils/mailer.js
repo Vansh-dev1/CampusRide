@@ -1,30 +1,18 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
-const createTransporter = () =>
-  nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
-  });
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendOTPEmail = async (email, name, otp) => {
-  const transporter = createTransporter();
+  console.log("Sending OTP email to:", email);
 
-  const info = await transporter.sendMail({
-    from: `CampusRide <${process.env.EMAIL_USER}>`,
+  const { data, error } = await resend.emails.send({
+    from: "CampusRide <onboarding@resend.dev>",
     to: email,
     subject: "CampusRide — Verify your email",
     html: `
       <div style="font-family: sans-serif; max-width: 480px; margin: auto; padding: 32px;">
         <h2 style="color: #4f46e5;">Hi ${name} 👋</h2>
-        <p style="color: #555;">Welcome to <strong>CampusRide</strong>! Use the OTP below to verify your university email address.</p>
+        <p style="color: #555;">Welcome to <strong>CampusRide</strong>! Use the OTP below to verify your email address.</p>
         <div style="background: #f0f0ff; border-radius: 8px; padding: 24px; text-align: center; margin: 24px 0;">
           <span style="font-size: 40px; font-weight: bold; letter-spacing: 10px; color: #4f46e5;">${otp}</span>
         </div>
@@ -34,15 +22,18 @@ const sendOTPEmail = async (email, name, otp) => {
     `,
   });
 
-  console.log("OTP email sent:", info.messageId);
-  return info;
+  if (error) {
+    console.error("Resend error:", error);
+    throw new Error(error.message);
+  }
+
+  console.log("✅ OTP email sent! ID:", data.id);
+  return data;
 };
 
 const sendBookingConfirmationEmail = async (email, name, ride, booking) => {
-  const transporter = createTransporter();
-
-  await transporter.sendMail({
-    from: `CampusRide <${process.env.EMAIL_USER}>`,
+  const { error } = await resend.emails.send({
+    from: "CampusRide <onboarding@resend.dev>",
     to: email,
     subject: "CampusRide — Booking Confirmed!",
     html: `
@@ -57,10 +48,11 @@ const sendBookingConfirmationEmail = async (email, name, ride, booking) => {
           <tr><td style="padding:8px; color:#777;">Total Fare</td><td style="padding:8px; font-weight:500;">₹${booking.totalFare}</td></tr>
           <tr><td style="padding:8px; color:#777;">Payment</td><td style="padding:8px; color:#e67e00; font-weight:500;">Pay cash to rider at pickup</td></tr>
         </table>
-        <p style="color:#999; font-size:13px;">Use the CampusRide chat to coordinate with your rider.</p>
       </div>
     `,
   });
+
+  if (error) throw new Error(error.message);
 };
 
 module.exports = { sendOTPEmail, sendBookingConfirmationEmail };
