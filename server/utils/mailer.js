@@ -1,4 +1,6 @@
 const { Resend } = require("resend");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -6,7 +8,7 @@ const sendOTPEmail = async (email, name, otp) => {
   console.log("Sending OTP email to:", email);
 
   const { data, error } = await resend.emails.send({
-    from: "CampusRide <onboarding@resend.dev>",
+    from: "CampusRide <otp@van-sh.dev>",
     to: email,
     subject: "CampusRide — Verify your email",
     html: `
